@@ -278,6 +278,7 @@ class AttachDBInstances extends V20140828Rpc
  * @method $this withRamRoleName($value)
  * @method string getOwnerId()
  * @method $this withOwnerId($value)
+ * @method array getSecurityGroupIds()
  * @method array getDataDisk()
  * @method string getScalingConfigurationName()
  * @method $this withScalingConfigurationName($value)
@@ -352,6 +353,21 @@ class ModifyScalingConfiguration extends V20140828Rpc
     {
         $this->data['SystemDiskDiskName'] = $value;
         $this->options['query']['SystemDisk.DiskName'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param array $securityGroupIds
+     *
+     * @return $this
+     */
+    public function withSecurityGroupIds(array $securityGroupIds)
+    {
+        $this->data['SecurityGroupIds'] = $securityGroupIds;
+        foreach ($securityGroupIds as $i => $iValue) {
+            $this->options['query']['SecurityGroupIds.' . ($i + 1)] = $iValue;
+        }
 
         return $this;
     }
@@ -1895,8 +1911,6 @@ class AttachInstances extends V20140828Rpc
  * @method $this withMetricName($value)
  * @method string getPredictiveScalingMode()
  * @method $this withPredictiveScalingMode($value)
- * @method string getTargetTrackingMode()
- * @method $this withTargetTrackingMode($value)
  */
 class CreateScalingRule extends V20140828Rpc
 {
@@ -2090,6 +2104,7 @@ class CreateScalingGroup extends V20140828Rpc
  * @method $this withRamRoleName($value)
  * @method string getOwnerId()
  * @method $this withOwnerId($value)
+ * @method array getSecurityGroupIds()
  * @method array getDataDisk()
  * @method string getScalingConfigurationName()
  * @method $this withScalingConfigurationName($value)
@@ -2164,6 +2179,21 @@ class CreateScalingConfiguration extends V20140828Rpc
     {
         $this->data['SystemDiskDiskName'] = $value;
         $this->options['query']['SystemDisk.DiskName'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * @param array $securityGroupIds
+     *
+     * @return $this
+     */
+    public function withSecurityGroupIds(array $securityGroupIds)
+    {
+        $this->data['SecurityGroupIds'] = $securityGroupIds;
+        foreach ($securityGroupIds as $i => $iValue) {
+            $this->options['query']['SecurityGroupIds.' . ($i + 1)] = $iValue;
+        }
 
         return $this;
     }
@@ -5172,8 +5202,6 @@ class DescribeScheduledTasks extends V20140828Rpc
  * @method $this withMetricName($value)
  * @method string getPredictiveScalingMode()
  * @method $this withPredictiveScalingMode($value)
- * @method string getTargetTrackingMode()
- * @method $this withTargetTrackingMode($value)
  */
 class ModifyScalingRule extends V20140828Rpc
 {
