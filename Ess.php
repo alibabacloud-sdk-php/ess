@@ -5,8 +5,8 @@ namespace AlibabaCloud\Ess;
 use AlibabaCloud\Client\Resolver\VersionResolver;
 
 /**
- * @deprecated
+ * @method static V20140828\EssApiResolver v20140828()
  */
-class EssVersion extends VersionResolver
+class Ess extends VersionResolver
 {
 }
